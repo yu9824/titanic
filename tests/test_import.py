@@ -2,5 +2,5 @@
 
 
 def test_import():
-    import kaggle_template.helpers
-    import kaggle_template.logging
+    import titanic.helpers
+    import titanic.logging

@@ -87,11 +87,11 @@ def _get_library_name() -> str:
     Returns
     -------
     str
-        The root package name (e.g., 'kaggle_template').
+        The root package name (e.g., 'titanic').
 
     Examples
     --------
-    If called from `kaggle_template.logging._logging`, returns 'kaggle_template'.
+    If called from `titanic.logging._logging`, returns 'titanic'.
     """
     return __name__.split(".")[0]
 
@@ -308,7 +308,7 @@ def get_library_root_logger() -> Logger:
 
     This function returns the root logger for the library, ensuring it is
     properly configured with a default handler and logging level. The logger
-    name corresponds to the top-level package name (e.g., 'kaggle_template').
+    name corresponds to the top-level package name (e.g., 'titanic').
 
     The logger is automatically configured on first access with:
     - Default stream handler (with color support if available)
@@ -324,7 +324,7 @@ def get_library_root_logger() -> Logger:
     --------
     >>> logger = get_library_root_logger()
     >>> logger.info("Library initialized")
-    kaggle_template - INFO - Library initialized
+    titanic - INFO - Library initialized
 
     See Also
     --------
@@ -350,7 +350,7 @@ def get_child_logger(name: str, propagate: bool = True) -> Logger:
     ----------
     name : str
         The module name, typically `__name__`. Must be either:
-        - A name within the library's namespace (e.g., 'kaggle_template.module')
+        - A name within the library's namespace (e.g., 'titanic.module')
         - The string '__main__' for scripts executed directly
     propagate : bool, optional
         Whether log messages should propagate to parent loggers. If `True`,
@@ -370,10 +370,10 @@ def get_child_logger(name: str, propagate: bool = True) -> Logger:
 
     Examples
     --------
-    >>> # In a module: kaggle_template/utils.py
+    >>> # In a module: titanic/utils.py
     >>> logger = get_child_logger(__name__)
     >>> logger.info("Module loaded")
-    kaggle_template.utils - INFO - Module loaded
+    titanic.utils - INFO - Module loaded
 
     >>> # In __main__ script
     >>> logger = get_child_logger(__name__)
@@ -463,7 +463,7 @@ class catch_default_handler:
 
     Examples
     --------
-    >>> from kaggle_template.logging import get_child_logger, catch_default_handler
+    >>> from titanic.logging import get_child_logger, catch_default_handler
     >>> logger = get_child_logger(__name__)
     >>>
     >>> logger.info("This will be logged")
@@ -509,7 +509,7 @@ class catch_all_handler:
 
     Examples
     --------
-    >>> from kaggle_template.logging import get_child_logger, catch_all_handler
+    >>> from titanic.logging import get_child_logger, catch_all_handler
     >>> logger = get_child_logger(__name__)
     >>>
     >>> logger.addHandler(custom_handler)  # Custom handler added

@@ -1,8 +1,8 @@
-# kaggle-template
+# titanic
 
 <!-- badges -->
-[![CI](https://github.com/yu9824/kaggle-template/actions/workflows/CI.yml/badge.svg)](https://github.com/yu9824/kaggle-template/actions/workflows/CI.yml)
-[![release-pypi](https://github.com/yu9824/kaggle-template/actions/workflows/release.yml/badge.svg)](https://github.com/yu9824/kaggle-template/actions/workflows/release.yml)
+[![CI](https://github.com/yu9824/titanic/actions/workflows/CI.yml/badge.svg)](https://github.com/yu9824/titanic/actions/workflows/CI.yml)
+[![release-pypi](https://github.com/yu9824/titanic/actions/workflows/release.yml/badge.svg)](https://github.com/yu9824/titanic/actions/workflows/release.yml)
 
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![mypy](https://www.mypy-lang.org/static/mypy_badge.svg)](https://github.com/python/mypy)
@@ -12,9 +12,9 @@
 
 ```bash
 # standard
-pip install git+https://github.com/yu9824/kaggle-template.git
+pip install git+https://github.com/yu9824/titanic.git
 
 # with Cython compiling
-pip install git+https://github.com/yu9824/kaggle-template.git#subdirectory=packages/setuptools/cython
+pip install git+https://github.com/yu9824/titanic.git#subdirectory=packages/setuptools/cython
 
 ```

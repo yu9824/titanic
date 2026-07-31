@@ -6,7 +6,7 @@ requires = ["setuptools>=77.0.3", "setuptools-scm[toml]>=7"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "kaggle-template"
+name = "titanic"
 dynamic = ["version"]
 dependencies = ["typing_extensions >= 4.5; python_version < '3.10'"]
 requires-python = ">= 3.9"
@@ -43,19 +43,19 @@ docs = [
 # gui = ["TkEasyGUI"]
 
 [project.urls]
-Homepage = "https://github.com/yu9824/kaggle-template"
-# Documentation = "https://yu9824.github.io/kaggle-template/"
-# PyPI = "https://pypi.org/project/kaggle-template/"
-Source = "https://github.com/yu9824/kaggle-template"
-Tracker = "https://github.com/yu9824/kaggle-template/issues"
-"Release Notes" = "https://github.com/yu9824/kaggle-template/releases"
-# Changelog = "https://github.com/yu9824/kaggle-template/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/yu9824/titanic"
+# Documentation = "https://yu9824.github.io/titanic/"
+# PyPI = "https://pypi.org/project/titanic/"
+Source = "https://github.com/yu9824/titanic"
+Tracker = "https://github.com/yu9824/titanic/issues"
+"Release Notes" = "https://github.com/yu9824/titanic/releases"
+# Changelog = "https://github.com/yu9824/titanic/blob/main/CHANGELOG.md"
 
 # [project.scripts]
-# kaggle-template = "kaggle_template.__main__:entrypoint"
+# titanic = "titanic.__main__:entrypoint"
 
 # [project.gui-scripts]
-# kaggle-template-gui = "kaggle_template:main_gui"
+# titanic-gui = "titanic:main_gui"
 
 [tool.setuptools]
 package-dir = { "" = "src" }
@@ -64,10 +64,10 @@ package-dir = { "" = "src" }
 
 # __init__.__version__ を動的バージョンとして使用
 # [tool.setuptools.dynamic]
-# version = { attr = "kaggle_template.__version__" }
+# version = { attr = "titanic.__version__" }
 
 [tool.setuptools.packages.find]
 where = ["src/"]
 
 [tool.setuptools_scm]
-write_to = "src/kaggle_template/_version.py"
+write_to = "src/titanic/_version.py"

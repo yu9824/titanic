@@ -1,4 +1,4 @@
-"""Helper functions and classes for the kaggle-template project.
+"""Helper functions and classes for the titanic project.
 
 This package provides utility functions and classes that are used throughout
 the project. These helpers are designed to be reusable and modular, making
@@ -14,13 +14,13 @@ Examples
 --------
 Check if a package is installed:
 
-    >>> from kaggle_template.helpers import is_installed
+    >>> from titanic.helpers import is_installed
     >>> if is_installed("numpy"):
     ...     import numpy as np
 
 Check if a function accepts a specific argument:
 
-    >>> from kaggle_template.helpers import is_argument
+    >>> from titanic.helpers import is_argument
     >>> def my_func(x, y):
     ...     return x + y
     >>> is_argument(my_func, "x")  # True
@@ -28,19 +28,19 @@ Check if a function accepts a specific argument:
 
 Use a dummy progress bar when tqdm is not available:
 
-    >>> from kaggle_template.helpers import dummy_tqdm
+    >>> from titanic.helpers import dummy_tqdm
     >>> for item in dummy_tqdm([1, 2, 3]):
     ...     process(item)
 
 Notes
 -----
-This package is primarily intended for internal use within the kaggle-template
+This package is primarily intended for internal use within the titanic
 project, but the functions are designed to be reusable in other projects as
 well.
 
 See Also
 --------
-- `kaggle_template.logging` : Logging utilities
+- `titanic.logging` : Logging utilities
 
 """
 

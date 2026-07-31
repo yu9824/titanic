@@ -18,7 +18,7 @@ Either, you use a directory "_build" within the root path, or you separate
 > Separate source and build directories (y/n) [n]: n
 
 The project name will occur in several places in the built documentation.
-> Project name: kaggle-template
+> Project name: titanic
 > Author name(s): yu9824
 > Project release []: 0.0.1
 
@@ -30,14 +30,14 @@ For a list of supported codes, see
 https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-language.
 > Project language [en]: en
 
-Creating file /home/yu9824/projects/kaggle-template/docs_src/conf.py.
-Creating file /home/yu9824/projects/kaggle-template/docs_src/index.rst.
-Creating file /home/yu9824/projects/kaggle-template/docs_src/Makefile.
-Creating file /home/yu9824/projects/kaggle-template/docs_src/make.bat.
+Creating file /home/yu9824/projects/titanic/docs_src/conf.py.
+Creating file /home/yu9824/projects/titanic/docs_src/index.rst.
+Creating file /home/yu9824/projects/titanic/docs_src/Makefile.
+Creating file /home/yu9824/projects/titanic/docs_src/make.bat.
 
 Finished: An initial directory structure has been created.
 
-You should now populate your master file /home/yu9824/projects/kaggle-template/docs_src/index.rst and create other documentation
+You should now populate your master file /home/yu9824/projects/titanic/docs_src/index.rst and create other documentation
 source files. Use the Makefile to build the docs, like so:
    make builder
 where "builder" is one of the supported builders, e.g. html, latex or linkcheck.
@@ -52,7 +52,7 @@ touch docs_src/_static/.gitkeep
 ## docstringから生成
 
 ```bash
-sphinx-apidoc -f -o ./docs_src ./src/kaggle_template --module-first
+sphinx-apidoc -f -o ./docs_src ./src/titanic --module-first
 ```
 
 ## index.rst を index.md へ
