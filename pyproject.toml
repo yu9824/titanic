@@ -1,0 +1,73 @@
+# https://packaging.python.org/ja/latest/guides/writing-pyproject-toml/
+[build-system]
+# __init__.__version__ を動的バージョンとして使用
+# requires = ["setuptools>=77.0.3"]
+requires = ["setuptools>=77.0.3", "setuptools-scm[toml]>=7"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kaggle-template"
+dynamic = ["version"]
+dependencies = ["typing_extensions >= 4.5; python_version < '3.10'"]
+requires-python = ">= 3.9"
+authors = [{ name = "yu9824" }]
+maintainers = [{ name = "yu9824" }]
+description = ""
+readme = { file = "README.md", content-type = "text/markdown" }
+# https://spdx.org/licenses/
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+keywords = []
+# https://pypi.org/classifiers/
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+] # https://pypi.org/classifiers/
+
+[project.optional-dependencies]
+test = ["pytest"]
+dev = ["build"]
+optional = ["colorlog", "tqdm"]
+docs = [
+    "sphinx",
+    "myst-parser",
+    "myst-nb",
+    "sphinx-book-theme",
+    "jupyter-sphinx",
+]
+# gui = ["TkEasyGUI"]
+
+[project.urls]
+Homepage = "https://github.com/yu9824/kaggle-template"
+# Documentation = "https://yu9824.github.io/kaggle-template/"
+# PyPI = "https://pypi.org/project/kaggle-template/"
+Source = "https://github.com/yu9824/kaggle-template"
+Tracker = "https://github.com/yu9824/kaggle-template/issues"
+"Release Notes" = "https://github.com/yu9824/kaggle-template/releases"
+# Changelog = "https://github.com/yu9824/kaggle-template/blob/main/CHANGELOG.md"
+
+# [project.scripts]
+# kaggle-template = "kaggle_template.__main__:entrypoint"
+
+# [project.gui-scripts]
+# kaggle-template-gui = "kaggle_template:main_gui"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+# setuptools>=v69.0.0以降は、py.typed や .pyiが自動で含まれる
+
+# __init__.__version__ を動的バージョンとして使用
+# [tool.setuptools.dynamic]
+# version = { attr = "kaggle_template.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src/"]
+
+[tool.setuptools_scm]
+write_to = "src/kaggle_template/_version.py"
