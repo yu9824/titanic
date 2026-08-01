@@ -8,16 +8,21 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "titanic"
 dynamic = ["version"]
-dependencies = ["typing_extensions >= 4.5; python_version < '3.10'"]
+dependencies = [
+    "typing_extensions >= 4.5; python_version < '3.10'",
+    "numpy",
+    "pandas",
+    "scikit-learn",
+]
 requires-python = ">= 3.9"
 authors = [{ name = "yu9824" }]
 maintainers = [{ name = "yu9824" }]
-description = ""
+description = "Workspace for the Kaggle Titanic competition"
 readme = { file = "README.md", content-type = "text/markdown" }
 # https://spdx.org/licenses/
 license = "MIT"
 license-files = ["LICEN[CS]E*"]
-keywords = []
+keywords = ["kaggle", "titanic"]
 # https://pypi.org/classifiers/
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -33,6 +38,11 @@ classifiers = [
 test = ["pytest"]
 dev = ["build"]
 optional = ["colorlog", "tqdm"]
+# Kaggle API クライアント (データ取得・提出に使用)
+kaggle = ["kaggle"]
+viz = ["matplotlib", "seaborn"]
+gbdt = ["lightgbm"]
+notebook = ["jupyter", "jupytext"]
 docs = [
     "sphinx",
     "myst-parser",
