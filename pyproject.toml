@@ -2,7 +2,7 @@
 [build-system]
 # __init__.__version__ を動的バージョンとして使用
 # requires = ["setuptools>=77.0.3"]
-requires = ["setuptools>=77.0.3", "setuptools-scm[toml]>=7"]
+requires = ["setuptools>=77.0.3", "setuptools-scm[toml]>=10.2.1"]
 build-backend = "setuptools.build_meta"
 
 [project]
