@@ -43,8 +43,10 @@ from pathlib import Path
 from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.impute import SimpleImputer
+from sklearn.metrics import accuracy_score
 from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import OneHotEncoder
+from sklearn.preprocessing import FunctionTransformer, OneHotEncoder
+
 
 # %%
 DIRPATH_INPUT = Path("/kaggle/input")
@@ -58,57 +60,53 @@ dirpath_dataset = DIRPATH_INPUT / "competitions/titanic"
 KEY_Y = "Survived"
 
 df_train = pd.read_csv(dirpath_dataset / "train.csv", index_col=0)
-X_train_raw = df_train.drop(KEY_Y, axis=1)
+X_train = df_train.drop(KEY_Y, axis=1)
 y_train = df_train.loc[:, KEY_Y]
-display(X_train_raw, y_train.to_frame())
+display(X_train.head(), y_train.to_frame().head())
 
 # %%
-X_test_raw = pd.read_csv(dirpath_dataset / "test.csv", index_col=0)
-X_test_raw.head()
+X_test = pd.read_csv(dirpath_dataset / "test.csv", index_col=0)
+X_test.head()
 
 # %% [markdown]
 # Embarked: 乗船地
 
 # %%
-X_train_raw.isna().sum()
+X_train.isna().sum()
 
 # %%
-X_test_raw.isna().sum()
+X_test.isna().sum()
 
 
 # %%
-def manual_preprocess(df: pd.DataFrame) -> pd.DataFrame:
-    KEY_NAME = "Name"
-    titles = ("Mr.", "Mrs.", "Miss", "Mrs.")
-    _df_name = pd.concat(
-        [
-            df.loc[:, KEY_NAME].str.contains(title).rename(title)
-            for title in titles
-        ],
-        axis=1,
-    ).astype(int)
-    # print(df.drop(KEY_NAME, axis=1), _df_name)
-    return pd.concat([df.drop(KEY_NAME, axis=1), _df_name], axis=1)
+def extract_title(X) -> np.ndarray:
+    X = np.asarray(X)
+    titles = ("Mr.", "Mrs.", "Miss")
+
+    return np.array(
+        [[title in name for title in titles] for name in X[:, 0]],
+        dtype=int,
+    )
 
 
-X_train = manual_preprocess(X_train_raw)
-X_train.head()
-
-# %%
-X_test = manual_preprocess(X_test_raw)
-X_test.head()
+title_transformer = FunctionTransformer(extract_title)
 
 # %%
 preprocessor = ColumnTransformer(
     [
         ("cat", OneHotEncoder(), ["Sex", "Embarked", "Pclass"]),
         ("num", SimpleImputer(), ["Age", "Fare"]),
+        ("title", title_transformer, ["Name"]),
     ]
 )
 
 estimator = make_pipeline(preprocessor, RandomForestClassifier(random_state=0))
 estimator.fit(X_train, y_train)
 
+
+# %%
+y_pred_on_train = estimator.predict(X_train)
+accuracy_score(y_train, y_pred_on_train)
 
 # %%
 y_pred_on_test = estimator.predict(X_test)
